@@ -1,0 +1,102 @@
+/* pages/unsubscribe/index.wxss */
+page, .container{
+  background-color: #f6f6f6;
+}
+.shop_item{
+  padding: 20rpx 30rpx 0rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.shop_img_info{
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+
+.shop_item_img{
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 20rpx;
+}
+.shop_info{
+  margin-left: 20rpx;
+}
+.shop_name{
+  display: block;
+  font-size: 30rpx;
+}
+.shop_specifications{
+  display: block;
+  font-size: 24rpx;
+  color: #adadad;
+}
+.shop_item_change_css{
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  margin-bottom: 25rpx;
+}
+
+.buy_iofo{
+  width: 100%;
+}
+.buy_iofo text{
+  display: block;
+  text-align: right;
+}
+.price{
+  font-size: 30rpx;
+}
+.original_price{
+  font-size: 24rpx;
+  color: #999;
+  text-decoration:line-through;
+}
+.count{
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+.real_pay{
+  display: block;
+  font-size: 30rpx;
+  text-align: right;
+  padding: 25rpx 0rpx;
+  border-top: 1rpx solid #ddd;
+}
+/* ------------------------ */
+.result_con{
+  width: 100%;
+  padding: 25rpx 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.title{
+  display: block;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+.tk_text{
+  font-size: 26rpx;
+  color: #999;
+}
+.tk_text :nth-child(2){
+  padding-left: 10rpx;
+}
+
+.btn_con{
+  width: 100%;
+  margin-top: 30rpx;
+  padding: 0 10%;
+  box-sizing: border-box;
+}
+.bh_btn, .ty_btn{
+  font-size: 30rpx;
+  color: #ef4836;
+  padding: 20rpx 15rpx;
+}

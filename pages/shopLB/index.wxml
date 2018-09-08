@@ -1,0 +1,22 @@
+<!--pages/shopLB/index.wxml-->
+<view class='container'>
+  <view class='flex_block shop_item' wx:for="{{shopLB}}" wx:key="items" wx:for-item="i">
+    <view class='shop_left'>
+      <block wx-if="{{!i.iconChecked}}">
+        <view class='choose_box' data-id="{{index}}" bindtap='select'></view>
+      </block>
+      <block wx-if="{{i.iconChecked}}">
+        <view class='choose_box' data-id="{{index}}" bindtap='select'>
+          <icon type="success_no_circle" size="18" color="red" />
+        </view>
+      </block>
+    </view>
+    <view class='flex_block shop_right'>
+      <view class='flex_block shop_img_info'>
+        <text>{{i.typeName}}</text>
+      </view>
+    </view>
+
+  </view>
+  <view class='sure_btn' bindtap='save'>确定</view>
+</view>

@@ -1,0 +1,257 @@
+/* pages/shop/index.wxss */
+
+.container {
+  overflow-x: hidden;
+  background: #f6f6f6;
+}
+/* 审核中蒙版 */
+.apply_mask{
+  width: 100%;
+  height: 110%;
+  background-color: rgba(0,0,0,0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+.apply_mask>image{
+  display: block;
+  width: 480rpx;
+  height: 541rpx;
+  margin: 200rpx auto 0;
+}
+.arrows_right {
+  width: 19rpx;
+  height: 33rpx;
+}
+.contact{
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 640rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #ef4836;
+}
+.close{
+  width: 100%;
+  text-align: center;
+  margin-top: 100rpx;
+}
+
+.showShopT{
+  width: 100%;
+  padding: 30rpx 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.showShopTitle{
+  width: 100%;
+  padding: 10rpx 0rpx;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  font-size: 38rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+
+/* 多店铺 */
+.show_lists_mask{
+  width: 100%;
+  height: 120%;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.shop_lists_con {
+  width: 50%;
+  margin: 130rpx auto 0rpx 50%;
+  background-color: #fff;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+.keep_apply_icon{
+  display: block;
+  transform: rotateZ(45deg);
+}
+
+.shop_item {
+  font-size: 30rpx;
+  text-align: center;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border-top: 1rpx solid #ddd;
+  justify-content: space-between;
+}
+.shop_item>view{
+  width: 80%;
+  text-align: right;
+  text-overflow: ellipsis;
+}
+.keep_apply {
+  width: 200rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  margin: 0 auto;
+  background: #ef4836;
+  color: #fff;
+  border-radius: 15rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+.shop_info {
+  width: 100%;
+  padding: 0rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.info_item {
+  font-size: 38rpx;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+
+.info_item {
+  width: 100%;
+  height: 120rpx;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  font-size: 38rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+
+.arrows {
+  width: 19rpx;
+  height: 33rpx;
+}
+
+.arrows_bottom {
+  width: 33rpx;
+  height: 19rpx;
+}
+
+.right_info {
+  display: block;
+  width: 450rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: right;
+  font-size: 30rpx;
+  color: #666;
+  margin-right: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dy_con {
+  width: 100%;
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  flex-wrap: wrap;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+
+.dy_con .dy_lists {
+  margin-right: 35rpx;
+}
+
+.dy_con .add_btn, .dy_con .remove_btn {
+  display: block;
+  width: 185rpx;
+  height: 185rpx;
+  margin-right: 35rpx;
+  border-radius: 10rpx;
+}
+
+.remove_btn {
+  margin-right: 0rpx;
+}
+
+.dy_img {
+  width: 185rpx;
+  height: 185rpx;
+  display: block;
+  border-radius: 10rpx;
+  -webkit-border-radius: 10rpx;
+}
+
+.dy_name {
+  display: block;
+  width: 185rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+}
+
+/* ---------------------- */
+
+.add_dy_con {
+  width: 100%;
+  height: 120%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.add_con {
+  width: 560rpx;
+  height: 400rpx;
+  position: relative;
+  margin: 330rpx auto 0;
+  padding: 20rpx 0rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.add_con>input {
+  display: block;
+  width: 475rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  margin: 120rpx auto 0rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+.cancle {
+  display: block;
+  position: absolute;
+  top: 5rpx;
+  right: 5rpx;
+}
+
+.ok_btn {
+  display: block;
+  width: 475rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #ef4836;
+  color: #fff;
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 35rpx;
+  margin-top: 60rpx;
+}
+.change_info{
+  margin-top: 50rpx;
+}

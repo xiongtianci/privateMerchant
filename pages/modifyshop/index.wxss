@@ -1,0 +1,286 @@
+/* pages/apply/index.wxss */
+
+.container {
+  overflow-x: hidden;
+  background: #f6f6f6;
+}
+
+.shop_info {
+  width: 100%;
+  padding: 0rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  background-color: #fff;
+}
+
+.placeholder_class {
+  text-align: right;
+}
+
+.container :nth-child(1) {
+  margin-top: 0rpx;
+}
+
+.info_item {
+  width: 100%;
+  height: 88rpx;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  font-size: 16px;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+.address_item{
+  height: auto;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  padding-top: 30rpx;
+}
+.describe_item{
+  height: auto;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  padding-top: 30rpx;
+}
+.info_item>input {
+  display: block;
+  max-width: 45%;
+  text-align: right;
+}
+
+.sh_lb {
+  width: 100%;
+  font-size: 17px;
+  padding: 20rpx 0rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #e8e8e8;
+}
+
+.lb_con {
+  padding: 20rpx 0rpx 0rpx 0rpx;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
+.lb_item {
+  padding: 10rpx;
+  margin: 0rpx 18rpx 20rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.lb_item_selected {
+  color: #090;
+  border-color: #090;
+}
+
+/* .pl_con {
+  padding: 20rpx 0rpx 0rpx 0rpx;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+} */
+.fix_css{
+  max-width: 50%;
+}
+.address_1{
+  resize: none;
+  width: 70%;
+  height: 140rpx;
+  padding: 20rpx 0 0 10rpx;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+.address {
+  resize: none;
+  width: 65%;
+  height: 120rpx;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+
+/* 营业执照 */
+
+.license {
+  width: 100%;
+  padding: 20rpx 30rpx 55rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.license_block {
+  width: 335rpx;
+}
+
+.license_img_box {
+  width: 335rpx;
+  height: 220rpx;
+  background-color: rgba(30, 85, 162, 0.3);
+  border-radius: 10rpx;
+  margin-top: 30rpx;
+  overflow: hidden;
+}
+
+.license_img_box>image {
+  width: 100%;
+}
+
+.upload_tit {
+  display: block;
+  font-size: 30rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+/* 身份证 */
+
+.id_card {
+  width: 100%;
+  padding: 20rpx 30rpx 20rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.id_card_box {
+  width: 500rpx;
+  margin-top: 30rpx;
+}
+
+.card_positive, .card_back {
+  height: 167rpx;
+  width: 222rpx;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.card_positive>image, .card_back>image {
+  width: 100%;
+}
+
+.card_text {
+  display: block;
+  font-size: 30rpx;
+  text-align: center;
+  margin-top: 15rpx;
+}
+
+/* 店铺照片 */
+
+.shop_img {
+  width: 100%;
+  padding: 20rpx 30rpx 50rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  margin-bottom: 150rpx;
+  background-color: #fff;
+}
+
+.shop_img_box {
+  width: 100%;
+  margin-top: 30rpx;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
+.shop_img_item {
+  height: 167rpx;
+  width: 222rpx;
+  background: #f0f0f0;
+  margin-left: 9rpx;
+  margin-bottom: 9rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.shop_img_item>image {
+  width: 100%;
+  height: 167rpx;
+}
+
+.submit_btn_con {
+  width: 100%;
+  padding: 15rpx 0rpx;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+}
+
+.submit_btn {
+  width: 700rpx;
+  line-height: 90rpx;
+  background: #ef4836;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+.topTap {
+  display: flex;
+  /* margin-top: 20rpx!important; */
+  height: 40px;
+  background: #fff;
+  /* padding: 15rpx; */
+  font-size: 18px;
+ 
+}
+
+.topTap .topTapItems {
+  width:50%;
+
+}
+
+.topTapItems_on{
+  height:40px;
+ width:38%;
+ color:#ef4836;
+ border-bottom:1px solid #ef4836;
+ margin:0;
+ padding:0;
+ line-height:40px;
+
+}
+.line_color{
+  color: #ddd;
+  
+}
+
+/* .topTap .topTapItems:first-child {
+  border-right: 1px solid #ccc;
+} */
+
+/* .topTap .topTapItems {
+  display:  flex;
+} */
+.address_icon{
+  display: block;
+  width: 33rpx;
+  height: 45rpx;
+  margin: 0;
+}
+
+.describe_con{
+  width: 50%;
+  height: 150rpx;
+  resize: none;
+  text-align: right;
+}
+.myCanvas{
+  position: absolute;
+  right: 10000px;
+  z-index: -999;
+}

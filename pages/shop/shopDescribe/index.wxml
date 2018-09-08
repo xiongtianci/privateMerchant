@@ -1,0 +1,18 @@
+<!--pages/shop/shopDescribe/index.wxml-->
+<view class='container'>
+  <!-- 店铺简介 -->
+  <view class='shop_info'>
+    <view class='info_item'>
+      <text>店铺简介(最多36个字符)</text>
+    </view>
+  </view>
+  <view>
+    <textarea class="detailText" 
+    placeholder="输入您的商铺介绍"
+    bindinput="bindDescribe"
+    value="{{describe}}"
+    maxlength='36'>
+    </textarea>
+  </view>
+  <button class='save_btn' type='primary' bindtap='updateDescribe'>保存修改</button>
+</view>

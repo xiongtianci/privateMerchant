@@ -1,0 +1,10 @@
+<!--pages/bindPhone/index.wxml-->
+<view class='container'>
+  <view class='bg_img'>
+    <image mode="widthFix" src="../resources/nav/phone_bg.jpg"></image>
+  </view>
+  <!-- button -->
+  <view class='join_con'>
+    <button class='join_btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">绑定手机号码</button>
+  </view>
+</view>

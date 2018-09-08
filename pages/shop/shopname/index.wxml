@@ -1,0 +1,13 @@
+<!--pages/shop/shopname/index.wxml-->
+<view class='container'>
+  <!-- 店铺简介 -->
+  <view class='shop_info'>
+    <view class='info_item'>
+      <text>修改店铺名称</text>
+    </view>
+  </view>
+  <view>
+    <input type='text' class="telText" placeholder="输入您的商铺名称" maxlength='12' bindinput="bindName" value="{{name}}"></input>
+  </view>
+  <button class="save_btn" type='primary' bindtap='updateTel'>保存修改</button>
+</view>

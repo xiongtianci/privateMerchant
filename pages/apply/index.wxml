@@ -1,0 +1,139 @@
+<!--pages/apply/index.wxml-->
+<view class='container'>
+<canvas canvas-id='attendCanvasId' class='myCanvas'></canvas>
+  <!-- 店铺信息 -->
+  <view class="topTap text-center font30 flex_block">
+    <view class='{{shopOffLine == false?"topTapItems topTapItems_on":"topTapItems"}}' bindtap='changeShop' data-type="1">实体店铺</view>
+   
+    <view class='{{shopOffLine == true?"topTapItems topTapItems_on":"topTapItems"}}' bindtap='changeShop' data-type="2">线上店铺</view>
+  </view>
+  <!-- 实体店铺信息 -->
+  <view class='shop_info' hidden="{{shopOffLine === true}}">
+    <view class='flex_block info_item'>
+      <text class='lable'>工商注册店铺名<text class='red'>*</text></text>      
+      <!-- <input maxlength='20' type='text' placeholder='请输入店铺名' placeholder-class='placeholder_class' bindinput='getOrgName' /> -->
+      <textarea type='text' maxlength='20' bindinput='getOrgName' auto-height placeholder="请输入店铺名" placeholder-class='placeholder_class' />
+    </view>
+    <view class='flex_block info_item'>
+      <text class='lable'>法人姓名<text class='red'>*</text></text>
+      <input maxlength='8' type='text' placeholder='请输入姓名' placeholder-class='placeholder_class' bindinput='getlegalRepr' />
+    </view>
+    <view class='flex_block info_item'>
+      <text class='lable'>法人联系电话<text class='red'>*</text></text>
+      <input type='number' maxlength='13' placeholder='请输入电话号码' placeholder-class='placeholder_class' bindinput='getlegalReprTel' />
+    </view>
+
+
+    <view class='flex_block info_item'>
+      <text class='lable'>商户地址<text class='red'>*</text></text>
+        <input value="{{province}}-{{city}}-{{county}}" disabled='disabled' bindtap="openMap" />
+        <!-- <input class='address_1' type='text' placeholder='' placeholder-class='placeholder_class' value='{{roomname}}' />
+        <image class='address_icon' src='../resources/shop/address_icon.png'></image> -->
+    </view>
+
+
+
+    <view class='flex_block info_item address_item'>
+      <text class='lable address-text'>详细地址<text class='red'>*</text></text>
+      <textarea class='address' type='text' placeholder='请输入详细地址' placeholder-class='placeholder_class' value='{{address}}'></textarea>
+    </view>
+    <view class='flex_block info_item'>
+      <text class='lable'>商铺电话<text class='red'>*</text></text>
+      <input maxlength='13' type='number' placeholder='请输入商铺电话' placeholder-class='placeholder_class' bindinput='getTelNb' />
+    </view>
+  </view>
+  <view hidden="{{shopOffLine === true}}">
+    <!-- 上传营业执照 -->
+    <view class='license'>
+      <view class='license_block' bindtap='chooseImg'>
+        <text class='font16'>上传：营业执照<text class='red'>*</text></text>
+        <view class='license_img_box'>
+          <image mode='aspectFill' src='{{licenseSrc}}'></image>
+        </view>
+        <text class='upload_tit'>上传图片</text>
+      </view>
+    </view>
+    <!-- 身份证 -->
+    <view class='id_card'>
+      <text class='font16'>上传：法人身份证<text class='f_999'>（正反面）<text class='red'>*</text></text>
+      </text>
+      <view class='flex_block id_card_box'>
+        <view bindtap='IdCardZ'>
+          <view class='card_positive'>
+            <image mode='aspectFill' src='{{card_positiveSrc}}'></image>
+          </view>
+          <text class='card_text'>正面</text>
+        </view>
+        <view bindtap='IdCardF'>
+          <view class='card_back'>
+            <image mode='aspectFill' src='{{card_backSrc}}'></image>
+          </view>
+          <text class='card_text'>反面</text>
+        </view>
+      </view>
+    </view>
+    <!-- 店铺照片 -->
+    <view class='shop_img'>
+      <text class='font16'>上传：店铺照片<text class='f_999'>（最多9张）<text class='red'>*</text></text>
+      </text>
+      <view class='flex_block shop_img_box'>
+        <view class='shop_img_item' wx:key='{{index}}' wx:for="{{shopSrcArray}}"> 
+          <!-- <image mode='widthFix' src='{{item}}'></image> -->
+          <image mode='aspectFill' src='{{item}}'></image>
+          <icon class='del_btn' type='clear' size='24' color='rgba(0,0,0,0.7)' data-id='{{index}}' bindtap='delPhoto'></icon>
+        </view>
+        <view class='shop_img_item' bindtap='shopIMG' wx:if="{{shopSrcArray.length<9}}">
+          <image mode='widthFix' src='../resources/shop/add_pic.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 线上店铺信息 -->
+  <view class='shop_info' hidden="{{shopOffLine === false}}">
+    <view class='flex_block info_item'>
+      <text class='lable'>线上店铺名<text class='red'>*</text></text>
+      <input maxlength='8' type='text' placeholder='请输入线上店铺名' placeholder-class='placeholder_class' bindinput='getName' />
+    </view>
+    <view class='sh_lb' bindtap='ToShopLB'>
+      <text class='lable'>商户类别：<text class='red'>*</text></text>
+      <text>{{shopLBNames}}</text>
+      <!-- <view class='flex_block lb_con'>
+        <view class="lb_item {{item.Checked==true ? 'lb_item_selected' : ''}}" wx:for="{{shopLB}}" wx:key="index" data-id='{{index}}' bindtap='pickLB'>{{item.typeName}}</view>
+      </view> -->
+    </view>
+    <view class='flex_block info_item describe_item'>
+      <text class='lable'>商户简介（限36个字）<text class='red'>*</text></text>
+      <textarea class='describe_con' type='text' maxlength='36' placeholder='请输入简介' placeholder-class='placeholder_class' bindinput='getDescribe'></textarea>
+    </view>
+    <view class='flex_block info_item'>
+      <text class='lable'>店铺负责人姓名<text class='red'>*</text></text>
+      <input type='text' maxlength='8' placeholder='请输入负责人姓名' placeholder-class='placeholder_class' bindinput='getManagerName' />
+    </view>
+    <view class='flex_block info_item'>
+      <text class='lable'>店铺负责人联系电话<text class='red'>*</text></text>
+      <input type='number' maxlength='11' placeholder='请输入负责人电话' placeholder-class='placeholder_class' value="{{managerTel}}" bindinput='getManagerTel' disabled='true'/>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class='submit_btn_con'>
+    <button class='submit_btn' bindtap='submitApply'>提交申请</button>
+  </view>
+</view>
+<view wx:if="{{condition}}" class="citypicker">
+  <picker-view indicator-style="height: 50px;" value="{{value}}" bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+      <view bindtap="openMap" class="city-cancel">取消</view>
+      <view bindtap="openMap" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>

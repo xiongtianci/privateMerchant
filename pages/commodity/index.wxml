@@ -1,0 +1,205 @@
+<!--pages/commodity/index.wxml-->
+<view class='container'>
+  <view class="flex_block swiper-tab">
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">在架商品</view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">下架商品</view>
+    <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">新增商品</view>
+  </view>
+  <swiper current="{{currentTab}}" class="swiper" duration="300" style="height:{{winHeight - 45}}px" bindchange="bindChange">
+    <swiper-item>
+      <!-- 在架商品 -->
+      <scroll-view class='on_line_item'>
+        <view class='info_con_css'>
+          <block wx-if="{{onLineShop.length == 0}}">
+            <text class='no_shop'>暂无在架商品</text>
+          </block>
+          <block wx-if="{{onLineShop.length != 0}}">
+            <view class='flex_block shop_item' wx:for="{{onLineShop}}" wx:key="items" wx:for-item="i">
+              <view class='shop_left'>
+                <block wx-if="{{!i.iconChecked}}">
+                  <view class='choose_box' data-id="{{index}}" bindtap='select'></view>
+                </block>
+                <block wx-if="{{i.iconChecked}}">
+                  <view class='choose_box' data-id="{{index}}" bindtap='select'>
+                    <icon type="success_no_circle" size="18" color="red" />
+                  </view>
+                </block>
+              </view>
+              <view class='flex_block shop_right' id="{{i.id}}" bindtap='toManagement'>
+                <view class='flex_block shop_img_info'>
+                  <image class='shop_item_img' mode='scaleToFill' src='{{i.rollPicAry[0]}}'></image>
+                  <view class='shop_info'>
+                    <text class='shop_name'>{{i.goodsNameCh}}</text>
+                    <text class='shop_date'>{{i.onlineTimeStr}}</text>
+                  </view>
+                </view>
+                <image class='arrows' mode='scaleToFill' src='../resources/shop/arrows.png'></image>
+              </view>
+            </view>
+          </block>
+        </view>
+      
+        <!-- 全选 下架 -->
+        <block wx-if="{{onLineShop.length != 0}}">
+          <view class='flex_block ctrl_btn'>
+            <view class='flex_block all_select'>
+              <block wx-if="{{!allSelect}}">
+                <view class='choose_box' bindtap='select_all'></view>
+                <text class='all_select_text'>全选</text>
+              </block>
+              <block wx-if="{{allSelect}}">
+                <view class='choose_box' bindtap='select_all_cancel'>
+                  <icon type="success_no_circle" size="18" color="red" />
+                </view>
+                <text class='all_select_text'>全选</text>
+              </block>
+            </view>
+            <button class='del_btn' bindtap='deleteitem'>下架</button>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <!-- 下架商品 -->
+    <swiper-item>
+      <view class='info_con_css'>
+        <block wx-if="{{downLineShop.length == 0 }}">
+          <text class='no_shop'>暂无下架商品</text>
+        </block>
+        <block wx-if="{{downLineShop.length != 0}}">
+          <view class='flex_block shop_item' wx:for="{{downLineShop}}" wx:key="items" wx:for-item="i">
+            <view class='shop_left'>
+              <block wx-if="{{!i.iconChecked}}">
+                <view class='choose_box' data-id="{{index}}" bindtap='selectB'></view>
+              </block>
+              <block wx-if="{{i.iconChecked}}">
+                <view class='choose_box' data-id="{{index}}" bindtap='selectB'>
+                  <icon type="success_no_circle" size="18" color="red" />
+                </view>
+              </block>
+            </view>
+            <view class='flex_block shop_right' id="{{i.id}}" bindtap='toManagement'>
+              <view class='flex_block shop_img_info'>
+                <image class='shop_item_img' mode='scaleToFill' src='{{i.rollPicAry[0]}}'></image>
+                <view class='shop_info'>
+                  <text class='shop_name'>{{i.goodsNameCh}}</text>
+                  <text class='shop_date'>{{i.onlineTimeStr}}</text>
+                </view>
+              </view>
+              <image class='arrows' mode='scaleToFill' src='../resources/shop/arrows.png'></image>
+            </view>
+          </view>
+        </block>
+      </view>
+      
+      <!-- 全选 上架 -->
+      <block wx-if="{{downLineShop.length != 0}}">
+       
+        <view class='flex_block ctrl_btn'>
+          <view class='flex_block all_select'>
+            <block wx-if="{{!allSelectB}}">
+              <view class='choose_box' bindtap='select_allB'></view>
+              <text class='all_select_text'>全选</text>
+            </block>
+            <block wx-if="{{allSelectB}}">
+              <view class='choose_box' bindtap='select_allB_cancel'>
+                <icon type="success_no_circle" size="18" color="red" />
+              </view>
+              <text class='all_select_text'>全选</text>
+            </block>
+          </view>
+          <button class='del_btn' bindtap='uploadItem'>上架</button>
+        </view>
+      </block>
+     <!-- 刷新按钮 -->
+
+    </swiper-item>
+    <!-- 新增商品 -->
+    <swiper-item>
+        <!-- 名称 -->
+        <view class='name'>
+          <view class='flex_block sp_name'>
+            <text>商品名称<text class='red'>*</text></text>
+            <input type='text' maxlength='30' value='{{commodityInfo.name}}' bindinput='getShopName' />
+          </view>
+        </view>
+        <!-- 信息 -->
+        <view class='info'>
+          <view>
+            <text>原价（¥）<text class='red'>*</text></text>
+            <input type='digit' value='{{commodityInfo.original_price}}' bindinput='getPrice' />
+          </view>
+          <!--<view>
+            <text>单独购买价格（¥）<text class='red'>*</text></text>
+            <input type='digit' value='{{commodityInfo.discount}}' bindinput='getDiscountPrice' />
+          </view>-->
+          <view>
+            <text>团购价（¥）<text class='red'>*</text></text>
+            <input type='digit' value='{{commodityInfo.group_price}}' bindinput='getGroupPrice' />
+          </view>
+          <view>
+            <text>商品分类<text class='red'>*</text></text>
+            <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{ClassifyArray}}">
+
+              <!-- <input disabled='disabled' class="fl_picker" value='{{ClassifyArray[index]}}' /> -->
+              <input disabled='disabled' class="fl_picker" value='{{goodsType}}' />
+            </picker>
+          </view>
+          <view>
+            <text>库存数量<text class='red'>*</text></text>
+            <input type='number' value='{{commodityInfo.stockNumber}}' bindinput='getStockNumber' />
+          </view>
+          <view class='view_none'>
+            <text>活动时间<text class='red'>*</text></text>
+            <!-- <input type='text' value='{{commodityInfo.date}}'></input>-->
+            <view class='flex_block'>
+              <picker mode="date" value="{{date}}" start="{{now}}" bindchange="bindDateChangeS">
+                <input disabled='disabled' class="picker date_picker" value='{{dateStart}}' placeholder='yyyy-mm-dd' />
+              </picker>
+              <text>~</text>
+              <picker mode="date" value="{{date}}" start="{{dateStart}}" bindchange="bindDateChangeE">
+                <input disabled='disabled' class="picker date_picker" value='{{dateEnd}}' placeholder='yyyy-mm-dd' />
+              </picker>
+            </view>
+          </view>
+          <view class='flex_block limit_con_intro'>
+            <text>商品简介<text class='red'>*</text></text>
+            <textarea type='text' class='introArea' value='{{intro}}' bindinput='getIntro'></textarea>
+            <!--<input type='text' value='{{intro}}' bindinput='getIntro' />-->
+          </view>
+          
+        </view>
+        <!-- 数量限制 -->
+        <view class='limit'>
+          <view class='flex_block limit_con'>
+            <text>最小购买量<text class='red'>*</text></text>
+            <input type='number' value='{{commodityInfo.limit}}' bindinput='getMinBuy' />
+          </view>
+          <view class='flex_block limit_con'>
+            <text>最大购买量<text class='red'>*</text></text>
+            <input type='number' value='{{commodityInfo.limit}}' bindinput='getMaxBuy' />
+          </view>
+        </view>
+        <!-- 店铺照片 -->
+        <view class='shop_img'>
+          <canvas canvas-id='attendCanvasId' class='myCanvas'></canvas>
+          <view class='add_line'>
+            <text class='font16'>上传照片<text class='f_999'>（最多9张）<text class='red'>*</text></text>
+            </text>
+          </view>
+          <view class='flex_block shop_img_box'>
+            <view class='shop_img_item' wx:key='{{index}}' wx:for="{{imgSrc}}">
+              <image mode='aspectFill' src='{{item}}'></image>
+              <icon class='del_btn_icon' type='clear' size='24' color='rgba(255,255,255,0.8)' data-id='{{index}}' bindtap='delPhoto'></icon>
+            </view>
+            <view class='add_btn' wx:if="{{imgSrc.length<9}}">
+              <image mode='widthFix' src='../resources/shop/add_pic.png' bindtap='addPhoto'></image>
+            </view>
+          </view>
+        </view>
+        <view class=' btn_con'>
+          <view class='clearBtn' bindtap='clearSP'>清空</view>
+          <view class='submit_btn' bindtap='AddSP'>创建</view>
+        </view>
+    </swiper-item>
+  </swiper>
+</view>

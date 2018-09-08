@@ -1,0 +1,120 @@
+/* pages/changeManage/index.wxss */
+page{
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.container{
+  background-color: #f6f6f6;
+}
+.on_line_item{
+  width: 100%;
+  position: relative;
+}
+.shop_item{
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+.choose_box{
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  border: 1rpx solid #d0d0d0;
+  border-radius: 50%;
+}
+.choose_box>icon{
+  position: absolute;
+}
+
+.shop_right{
+  width: 90%;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+
+.shop_img_info{
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+
+.shop_item_img{
+  width: 66rpx;
+  height: 66rpx;
+  margin-left: 20rpx;
+}
+.shop_info{
+  margin-left: 20rpx;
+}
+.shop_name{
+  display: block;
+  font-size: 30rpx;
+}
+.shop_date{
+  display: block;
+  font-size: 24rpx;
+  color: #adadad;
+}
+
+.arrows{
+  width: 19rpx;
+  height: 33rpx;
+}
+.no_dy{
+  display: block;
+  text-align: center;
+  color: #adadad;
+  font-size: 30rpx;
+  margin-top: 50rpx;
+}
+.ctrl_btn{
+  width: 100%;
+  height: 100rpx;
+  padding: 20rpx 60rpx 20rpx 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+.all_select_text{
+  font-size: 30rpx;
+  color: #666;
+  margin-left: 10rpx;
+}
+
+.del_btn{
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #ef4836;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+/* ----------------------- */
+.confirm_con{
+  width: 100%;
+  height: 100rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  padding: 0rpx 20rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.confirm_btn{
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #ef4836;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  border-radius: 10rpx;
+}

@@ -1,0 +1,53 @@
+<!--pages/unsubscribe/index.wxml-->
+<view class='container'>
+  <view class='shop_item'>
+    <view class='flex_block shop_item_change_css'>
+      <view class='shop_left'>
+        <view class='flex_block shop_img_info'>
+          <image class='shop_item_img' mode='scaleToFill' src='{{TdInfo.imgSrc}}'></image>
+          <view class='shop_info'>
+            <text class='shop_name'>{{TdInfo.name}}</text>
+            <text class='shop_specifications'>{{TdInfo.specifications}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='shop_right' bindtap='toManagement'>
+        <view class='buy_iofo'>
+          <text class='price'>¥{{TdInfo.price}}</text>
+          <text class='original_price'>¥{{TdInfo.original_price}}</text>
+          <text class='count'>×{{TdInfo.count}}</text>
+        </view>
+      </view>
+    </view>
+    <text class='real_pay'>实付:¥{{TdInfo.real_pay}}</text>
+  </view>
+  <!-- 买家申请退款处理 -->
+  <view class='result_con'>
+    <text class='title'>{{ResultInfo.title}}</text>
+    <view class='tk_text'>
+      <text>操作时间：</text>
+      <text>{{ResultInfo.date}}</text>
+    </view>
+    <view class='tk_text'>
+      <text>退款申请：</text>
+      <text>{{ResultInfo.apply}}</text>
+    </view>
+    <view class='tk_text'>
+      <text>货物状态：</text>
+      <text>{{ResultInfo.state}}</text>
+    </view>
+    <view class='tk_text'>
+      <text>退款原因：</text>
+      <text>{{ResultInfo.reason}}</text>
+    </view>
+    <view class='tk_text'>
+      <text>退款金额：</text>
+      <text>{{ResultInfo.tkMoney}}</text>
+    </view>
+    <!-- 处理按钮 -->
+    <view class='flex_block btn_con'>
+      <view class='bh_btn' bindtap='rejectTK'>驳回退款</view>
+      <view class='ty_btn'>同意退款</view>
+    </view>
+  </view>
+</view>

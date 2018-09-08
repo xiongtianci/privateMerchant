@@ -1,0 +1,59 @@
+<!--pages/reject/index.wxml-->
+<view class='container'>
+  <view class='shop_item'>
+    <view class='title'>
+      <text>退款商品</text>
+    </view>
+    <view class='flex_block shop_item_change_css'>
+      <view class='shop_left'>
+        <view class='flex_block shop_img_info'>
+          <image class='shop_item_img' mode='scaleToFill' src='{{TdInfo.imgSrc}}'></image>
+          <view class='shop_info'>
+            <text class='shop_name'>{{TdInfo.name}}</text>
+            <text class='shop_specifications'>{{TdInfo.specifications}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='shop_right' bindtap='toManagement'>
+        <view class='buy_iofo'>
+          <text class='price'>¥{{TdInfo.price}}</text>
+          <text class='count'>×{{TdInfo.count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='flex_block info_item'>
+    <text>货物状态</text>
+    <picker bindchange="state_Change" value="{{shopState[index]}}" range="{{shopState}}">
+      <input type='text' disabled='true' placeholder=' > ' placeholder-class='placeholder_class' value='{{shopState[lbIdx]}}'></input>
+    </picker>
+  </view>
+  <view class='flex_block info_item'>
+    <text>驳回原因</text>
+    <picker bindchange="rejectReason" value="{{rejectReason[index]}}" range="{{rejectReason}}">
+      <input type='text' disabled='true' placeholder=' > ' placeholder-class='placeholder_class' value='{{rejectReason[resIdx]}}'></input>
+    </picker>
+  </view>
+  <view class='flex_block info_item flex_start m_top_20'>
+    <text>退款金额：</text>
+    <text class='price' style='margin-left:20rpx;'>¥{{TdInfo.price}}</text> 
+  </view>
+  <view class='flex_block info_item flex_start m_top_20'>
+    <text>驳回说明：</text>
+    <input type='text' style='margin-left:20rpx;text-algin:left;' placeholder='选填' placeholder-class='placeholder_class_left'></input>    
+  </view>
+  <!-- 上传凭证 -->
+  <view class='shop_img'>
+    <text class='font30'>上传凭证</text>
+    <view class='flex_block shop_img_box'>
+      <view class='shop_img_item' wx:key='{{index}}' wx:for="{{shopSrcArray}}">
+        <image mode='widthFix' src='{{item}}'></image>
+      </view>
+      <view class='shop_img_item' bindtap='shopIMG'>
+        <image mode='widthFix' src='../resources/shop/scpz.png'></image>
+      </view>
+    </view>
+  </view>
+  <button class='submit_btn'>提交</button>
+</view>

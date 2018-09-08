@@ -1,0 +1,13 @@
+<!--pages/shop/shopTel/index.wxml-->
+<view class='container'>
+  <!-- 店铺简介 -->
+  <view class='shop_info'>
+    <view class='info_item'>
+      <text>修改店铺电话</text>
+    </view>
+  </view>
+  <view>
+    <input type='number' class="telText" placeholder="输入您的商铺手机" maxlength='12' bindinput="bindTel" value="{{tel}}"></input>
+  </view>
+  <button class="save_btn" type='primary' bindtap='updateTel'>保存修改</button>
+</view>

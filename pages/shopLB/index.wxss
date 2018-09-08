@@ -1,0 +1,53 @@
+/* pages/shopLB/index.wxss */
+page,.container{
+  height: 100%;
+  overflow-y: scroll;
+  position: relative;
+}
+.on_line_item{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-y: hidden;
+}
+.info_con_css{
+  height: 90%;
+  overflow-y: scroll;
+}
+.shop_item{
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+.choose_box{
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  border: 1rpx solid #d0d0d0;
+  border-radius: 8rpx;
+}
+.choose_box>icon{
+  position: absolute;
+}
+.shop_right{
+  margin-left: 50rpx;
+}
+.shop_img_info{
+  font-size: 30rpx;
+}
+.sure_btn{
+  width: 120rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: #ef4836;
+  color: #fff;
+  text-align: center;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+}

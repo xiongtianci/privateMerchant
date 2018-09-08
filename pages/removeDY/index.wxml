@@ -1,0 +1,33 @@
+<!--pages/changeManage/index.wxml-->
+<view class='container'>
+  <block wx-if="{{dyLists.length == 0}}">
+    <text class='no_dy'>暂无店员</text>
+  </block>
+  <block wx-if="{{dyLists.length != 0}}">
+    <view class='flex_block shop_item' wx:for="{{dyLists}}" wx:key="items" wx:for-item="i">
+      <view class='shop_left'>
+        <block wx-if="{{!i.Checked}}">
+          <view class='choose_box' data-id="{{index}}" data-dyID="{{i.id}}" bindtap='select'></view>
+        </block>
+        <block wx-if="{{i.Checked}}">
+          <view class='choose_box' data-id="{{index}}" bindtap='select'>
+            <icon type="success" size="20" color="red" />
+          </view>
+        </block>
+      </view>
+      <view class='flex_block shop_right'>
+        <view class='flex_block shop_img_info'>
+          <image class='shop_item_img' mode='scaleToFill' src='{{i.headImgUrl}}'></image>
+          <view class='shop_info'>
+            <text class='shop_name' wx:if="{{res.data.data.name == null}}">{{i.mobile}}</text>
+            <text class='shop_name' wx:if="{{res.data.data.name != null}}">{{i.name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='flex_block confirm_con'>
+    <view></view>
+    <view class='confirm_btn' bindtap='DelDY'>移除</view>
+  </view>
+</view>

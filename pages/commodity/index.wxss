@@ -1,0 +1,398 @@
+/* pages/commodity/index.wxss */
+.swiper-tab{
+    width: 100%;  
+    text-align: center;  
+    line-height: 80rpx;
+    padding: 0rpx 30rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #eee;
+}
+.tab-item{
+    width: 140rpx;
+    font-size: 30rpx;  
+    display: inline-block;   
+    color: #333;
+    line-height: 38px;
+}
+.on{
+    color: #b5151f;  
+    border-bottom: 5rpx solid #b21621;
+}
+.swiper{ display: block; height: 100%; width: 100%; overflow-x: hidden; overflow-y: scroll; }  
+swiper-item{
+  height: auto;
+  background-color: #f6f6f6;
+  overflow-y: scroll;
+}
+
+.on_line_item{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-y: hidden;
+}
+.info_con_css{
+  height: 90%;
+  overflow-y: scroll;
+}
+.shop_item{
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+.choose_box{
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  border: 1rpx solid #d0d0d0;
+  border-radius: 8rpx;
+}
+.choose_box>icon{
+  position: absolute;
+}
+
+.shop_right{
+  width: 90%;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+
+.shop_img_info{
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+
+.shop_item_img{
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 20rpx;
+}
+.shop_info{
+  margin-left: 20rpx;
+}
+.shop_name{
+   display: block;
+  width: 400rpx;
+  font-size: 30rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.shop_date{
+  display: block;
+  font-size: 24rpx;
+  color: #adadad;
+}
+
+.arrows{
+  width: 19rpx;
+  height: 33rpx;
+}
+.no_shop{
+  display: block;
+  text-align: center;
+  color: #adadad;
+  font-size: 30rpx;
+  margin-top: 50rpx;
+}
+.ctrl_btn{
+  width: 100%;
+  height: 100rpx;
+  position: absolute;
+  bottom: 0;
+  padding: 20rpx 60rpx 20rpx 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+.all_select_text{
+  font-size: 30rpx;
+  color: #666;
+  margin-left: 10rpx;
+}
+
+.del_btn{
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #ef4836;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  padding: 0;
+  
+  margin: 30rpx 30rpx 0 0;
+}
+/* ---------------------------- */
+.addSP_con{
+  width: 100%;
+}
+.addSP_btn{
+  width: 150rpx;
+  height: 75rpx;
+  margin: 50rpx auto;
+  line-height: 75rpx;
+  background: #ef4836;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+}
+/* -------------新增商品------------- */
+
+.name {
+  width: 100%;
+  padding: 25rpx 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.sp_name {
+  padding: 0rpx 20rpx;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+
+.sp_name :nth-child(1) {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.sp_name :nth-child(3) {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.info {
+  width: 100%;
+  padding: 0rpx 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.info>view {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  padding: 25rpx 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ddd;
+}
+.view_none{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  padding: 25rpx 20rpx;
+  box-sizing: border-box;
+ 
+}
+
+.info>view :nth-child(1) {
+  font-size: 16px;
+  color: #333;
+}
+
+.info>view :nth-child(3) {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.info>view :nth-child(6) {
+  border-bottom: 1px solid red;
+}
+
+.date_pick{
+  display: block;
+  width: 100rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+}
+.date_picker{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.picker{
+  width: 200rpx;
+  text-align: center;    
+}
+piker{
+  max-width: 50%;
+}
+.fl_picker{
+  max-width: 100%;
+  text-align: right;
+}
+.date_picker{
+  max-width: 100%;
+  text-align: center;
+}
+.limit {
+  width: 100%;
+  padding: 0rpx 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.limit_con {
+  padding: 25rpx 20rpx;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  border-bottom: 1rpx solid #ddd;
+}
+.limit_con_intro {
+  border-bottom: 1px solid #fff;
+}
+
+.limit_con :nth-child(1) {
+  font-size: 16px;
+  color: #333;
+}
+
+.limit_con :nth-child(3) {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.introArea{
+  width: 65%;
+  height: 100rpx;
+  padding: 6rpx 10rpx;
+  text-align: left;
+  line-height: 24rpx;
+  overflow: hidden;
+}
+
+/* 店铺照片 */
+
+.shop_img {
+  width: 100%;
+  padding: 20rpx 30rpx 50rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  background-color: #fff;
+ 
+}
+.del_btn_icon{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.add_line {
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.shop_img_box {
+  width: 100%;
+  margin-top: 30rpx;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
+.shop_img_item {
+  height: 167rpx;
+  width: 222rpx;
+  position: relative;
+  background: #f0f0f0;
+  margin-left: 9rpx;
+  margin-bottom: 9rpx;
+  overflow: hidden;
+}
+
+.shop_img_item>image {
+  width: 100%;
+  height: 167rpx;
+}
+
+.add_btn {
+  width: 222rpx;
+  height: 167rpx;
+  margin-left: 9rpx;
+  margin-bottom: 9rpx;
+}
+
+.add_btn>image {
+  display: block;
+  width: 100%;
+}
+
+input{
+  max-width: 45%;
+  text-align: right;
+}
+.btn_con{
+  width: 100%;
+  height: 100rpx;
+  padding: 0 20rpx; 
+  box-sizing: border-box;
+  position:absulote;
+  bottom:0px;
+  z-index: 1;
+  background-color: #fff;
+  
+}
+.submit_btn{
+  width: 40%;
+ 
+  line-height: 100rpx;
+  background-color: #ef4836;
+  border-radius: 10rpx;
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  float:right;
+  margin-right: 20px;
+}
+.scrollView{
+  height: 100%;
+}
+.clearBtn{
+  width: 40%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #eee;
+  border-radius: 10rpx;
+  font-size: 36rpx;
+  color: #000;
+  text-align: center;
+  float:left;
+  margin-left: 20px;
+}
+/*刷新按钮样式*/
+.Ref{
+  width: 40px;
+  height: 40px;
+}
+.fresh{
+   background-color: #ddd;
+    border: none;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 100px;
+    position:absolute;
+    bottom: 20px;
+    right: 20px;
+
+}
+
+.myCanvas{
+  position: absolute;
+  right: 10000px;
+  z-index: -999;
+}

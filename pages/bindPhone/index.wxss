@@ -1,0 +1,38 @@
+/* pages/bindPhone/index.wxss */
+page, .container{
+  width: 100%;
+  height:100%;
+} 
+.container {
+  position: relative;
+}
+
+.bg_img {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.bg_img>image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.join_con {
+  width: 100%;
+  position: absolute;
+  top: 800rpx;
+}
+
+.join_btn {
+  width: 360rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #ef4836;
+  border-radius: 30px;
+  color: #fff;
+  text-align: center;
+  margin: 0rpx auto;
+}

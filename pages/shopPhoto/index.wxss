@@ -1,0 +1,43 @@
+/* pages/shopPhoto/index.wxss */
+.photo_con{
+  width: 100%;
+  padding: 20rpx 25rpx;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+.photo_item{
+  width: 222rpx;
+  height: 167rpx;
+  position: relative;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+}
+.photo{
+  display: block;
+  width: 220rpx;
+}
+.add_btn {
+  width: 222rpx;
+  height: 167rpx;
+  margin-left: 9rpx;
+  margin-bottom: 9rpx;
+}
+
+.add_btn>image {
+  display: block;
+  width: 100%;
+}
+/* .del_btn{
+  position: absolute;
+  right: 0;
+  top: 0;
+} */
+.myCanvas{
+  position: absolute;
+  left: 10000px;
+  z-index: -999;
+}

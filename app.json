@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/shopLB/index",
+    "pages/shop/index",
+    "pages/commodity/index",
+    "pages/spUpdate/index",
+    "pages/shop/shopList/index",
+    "pages/shop/shopDescribe/index",
+    "pages/shop/shopname/index",
+    "pages/shop/shopTel/index",
+    "pages/changeInfo/index",
+    "pages/changeManage/index",
+    "pages/deleteClerk/index",
+    "pages/bindPhone/index",
+    "pages/shopPhoto/index",
+    "pages/apply/index",
+    "pages/modifyshop/index",
+    "pages/removeDY/index",
+    "pages/unsubscribe/index",
+    "pages/reject/index",
+    "pages/order/index",
+    "pages/Auth/Auth",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ef4836",
+    "navigationBarTitleText": "找特卖商家版",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "selectedColor": "#ee4734",
+    "list": [
+      {
+        "pagePath": "pages/commodity/index",
+        "text": "商品",
+        "iconPath": "pages/resources/nav/commodity.png",
+        "selectedIconPath": "pages/resources/nav/commodity_on.png"
+      },
+      {
+        "pagePath": "pages/shop/index",
+        "text": "店铺",
+        "iconPath": "pages/resources/nav/shop.png",
+        "selectedIconPath": "pages/resources/nav/shop_on.png"
+      }
+    ]
+  }
+}

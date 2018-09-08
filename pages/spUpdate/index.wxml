@@ -1,0 +1,97 @@
+<!--pages/spManagement/index.wxml-->
+<view class='container'>
+  <!-- 名称 -->
+  <view class='name'>
+    <view class='flex_block sp_name'>
+      <text>商品名称</text>
+      <input type='text' maxlength='8' value='{{commodityInfo.goodsNameCh}}' bindinput='getShopName' />
+    </view>
+  </view>
+  <!-- 信息 -->
+  <view class='info'>
+    <view>
+      <text>原价</text>
+      <input type='digit' value='{{commodityInfo.price}}' bindinput='getPrice' />
+    </view>
+    <view>
+      <text>单独购买价格</text>
+      <input type='digit' value='{{commodityInfo.discountPrice}}' bindinput='getDiscountPrice' />
+    </view>
+    <view>
+      <text>团购价</text>
+      <input type='digit' value='{{commodityInfo.groupPrice}}' bindinput='getGroupPrice' />
+    </view>
+    <view>
+      <text>商品分类</text>
+      <picker mode = selector bindchange="bindPickerChange" value="{{index}}"  range="{{ClassifyArray}}">
+        <input disabled='disabled' class="fl_picker" value='{{ClassifyArray[index]}}' />
+      </picker>
+    </view>
+    <!-- <view>
+      <text>单位</text>
+      <input type='text' value='{{commodityInfo.Unit}}' bindinput='getUnit' />
+    </view> -->
+    <!-- 单位修改 -->
+    <!-- <view>
+      <text>单位</text>
+      <picker mode = "selector" bindchange="bindPickerChange1" value="{{index1}}"  range="{{Company}}">
+        <input disabled='disabled' class="fl_picker" value='{{Company[index1]}}' />
+      </picker>
+    </view> -->
+    <view>
+      <text>库存数量*</text>
+      <input type='number' value='{{commodityInfo.stockNumber}}' bindinput='getStockNumber' />
+    </view>
+    <view>
+      <text>活动时间*</text>
+      <view class='flex_block'>
+        <picker mode="date" value="{{date}}" start="2018-01-01" bindchange="bindDateChangeS">
+          <input disabled='disabled' class="picker" placeholder='{{commodityInfo.beginDateStr}}' value='{{dateStart}}' />
+        </picker>
+        <text>~</text>
+        <picker mode="date" value="{{date}}" start="2018-01-01" bindchange="bindDateChangeE">
+          <input disabled='disabled' class="picker" placeholder='{{commodityInfo.endDateStr}}' value='{{dateEnd}}' />
+        </picker>
+      </view>
+    </view>
+    <view class='flex_block limit_con'>
+            <text>商品简介<text class='red'>*</text></text>
+            <input type='text' value='{{commodityInfo.intro}}' bindinput='getIntro' />
+          </view>
+  </view>
+  <!-- 数量限制 -->
+  <view class='limit'>
+    <view class='flex_block limit_con'>
+      <text>最小购买量*</text>
+      <input type='number' value='{{commodityInfo.minBuy}}' bindinput='getMinBuy' />
+    </view>
+    <view class='flex_block limit_con'>
+      <text>最大购买量*</text>
+      <input type='number' value='{{commodityInfo.maxBuy}}' bindinput='getMaxBuy' />
+    </view>
+  </view>
+  <!-- 店铺照片 -->
+  <view class='shop_img'>
+  <canvas canvas-id='attendCanvasId' class='myCanvas'></canvas>
+    <view class='add_line'>
+      <text class='font30'>修改照片<text class='f_999'>（最多9张）</text></text>
+    </view>
+    <view class='flex_block shop_img_box'>
+      <view class='shop_img_item' wx:key='{{index}}' wx:for="{{imgSrc}}">
+        <image mode='aspectFill' src='{{item}}' data-id='{{index}}' bindtap='previewPhoto'></image>
+        <icon class='del_btn' type='clear' size='24' color='rgba(0,0,0,0.7)' data-id='{{index}}' bindtap='delPhoto'></icon>
+      </view>
+      <view class='add_btn'>
+        <image mode='widthFix' wx:if="{{imgSrc.length<9}}" src='../resources/shop/add_pic.png' bindtap='addPhoto'></image>
+      </view>
+    </view>
+  </view>
+  <view class='flex_block btn_con'>
+    <view></view>
+    <view class='flex_block'>
+      <view class='xiajia_btn' wx:if="{{commodityInfo.onlineFlag==1}}" bindtap='DelSP'>下架</view>
+      <view class='xiajia_btn' wx:if="{{commodityInfo.onlineFlag==2}}" bindtap='AddSP'>上架</view>
+      <view class='save_btn' bindtap='SaveSP'>保存修改</view>
+    </view>
+  </view>
+</view>

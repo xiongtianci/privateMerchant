@@ -1,0 +1,174 @@
+/* pages/Auth/Auth.wxss */
+
+page {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  background-color: #f6f6f6;
+  padding: 20rpx;
+}
+
+.top {
+  width: 100%;
+  text-align:center;
+
+}
+
+.textbox {
+  width: 100%;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding-top: 15px;
+  padding-bottom: 25px;
+}
+
+.tips {
+  width: 100%;
+  font-weight: bold;
+  display: block;
+  color: #f57c1c;
+  font-size: 15px;
+  text-align: center;
+}
+
+.tipd {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 13px;
+  color: #d2d2d2;
+  text-align: center;
+  display: block;
+}
+
+.nowshop {
+  font-size: 14px;
+  background: #47b793;
+  text-align: center;
+  color: #fff;
+  line-height: 50px;
+  margin-top: 20px;
+  border-radius: 10rpx;
+}
+
+.hshop {
+  font-size: 14px;
+  background: #30a6ff;
+  text-align: center;
+  color: #fff;
+  line-height: 50px;
+  margin-top: 20px;
+  border-radius: 10rpx;
+}
+
+.shop_lists_con {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.shop_lists {
+  width: 500rpx;
+  height: 414rpx;
+  position: absolute;
+  top: 270rpx;
+  left: 16%;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  background: #f1f1f1;
+  border-radius: 10rpx;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.shop_item {
+  font-size: 30rpx;
+  text-align: center;
+  padding: 20rpx;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  color: #706565;
+}
+
+.myd {
+  display: block;
+  font-size: 18px;
+  padding-bottom: 5px;
+  text-align: center;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.dp_name {
+  width: 180rpx;
+  font-size: 15px;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 10rpx;
+  text-align: left;
+  padding-left: 20rpx;
+}
+
+.blue {
+  font-size: 12px;
+  color: #2e83ff;
+}
+
+.close {
+  position: absolute;
+  top: 745rpx;
+  left: 45%;
+}
+.apply_mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+.apply_mask>image {
+  display: block;
+  width: 480rpx;
+  height: 541rpx;
+  margin: 200rpx auto 0;
+}
+.fix_info{
+  display: block;
+  width: 365rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: #ef4836;
+  border-radius: 30rpx;
+  position: absolute;
+  top: 600rpx;
+  left: 200rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+}
+.close {
+  position: absolute;
+  top: 745rpx;
+  left: 45%;
+}
+.contact {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 640rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #ef4836;
+}

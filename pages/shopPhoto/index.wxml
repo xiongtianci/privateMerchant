@@ -1,0 +1,14 @@
+<!--pages/shopPhoto/index.wxml-->
+<view class='container'>
+<canvas canvas-id='attendCanvasId' class='myCanvas'></canvas>
+  <!-- 照片 -->
+  <view class='flex_block photo_con'>
+    <view class='photo_item' wx:for="{{shopSrcArray}}" wx:key="item">
+      <icon class='del_btn' type='clear' size='24' color='rgba(0,0,0,0.7)' data-id='{{index}}' bindtap='delPhoto'></icon>
+      <image class='photo' src='{{item}}' mode='aspectFill' data-id='{{index}}' bindtap='showPhoto'></image>
+    </view>
+    <view class='add_btn' bindtap='addPhoto' wx:if="{{shopSrcArray.length<9}}">
+      <image mode='widthFix' src='../resources/shop/add_pic.png'></image>
+    </view>
+  </view>
+</view>

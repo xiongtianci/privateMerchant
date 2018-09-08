@@ -1,0 +1,28 @@
+<!--pages/article/index.wxml-->
+<view class='container'>
+
+  <view class="flex_block swiper-tab">
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">软文模板</view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">历史模板</view>
+  </view>
+  <swiper current="{{currentTab}}" class="swiper" duration="200" style="height:{{winHeight - 45}}px" bindchange="bindChange">
+    <swiper-item>
+      <view class='article_mask'>
+        <view class='flex_block article_item' wx:for="{{articleText}}" wx:key="index" wx:for-item="i">
+          <block wx-if="{{!i.iconChecked}}">
+            <view class='choose_box' data-id="{{index}}" bindtap='select'></view>
+          </block>
+          <block wx-if="{{i.iconChecked}}">
+            <view class='choose_box no_border' data-id="{{index}}" bindtap='select'>
+              <icon type="success" size="24" color="red" />
+            </view>
+          </block>
+          <text class='article_text'>{{i.text}}</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class='no_history'>暂无历史模板</view>
+    </swiper-item>
+  </swiper>
+</view>

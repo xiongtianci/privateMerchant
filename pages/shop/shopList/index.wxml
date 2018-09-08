@@ -1,0 +1,29 @@
+<!--pages/shop/shopList/index.wxml-->
+<view class='container'>
+  <!-- 店铺简介 -->
+  <view class='shop_info'>
+    <view class='flex_block info_item' bindtap='KeepApply'>
+      <text>添加新店铺</text>
+      <!-- <icon class='keep_apply_icon' type="clear" size="20" color='#0aba07' /> -->
+     <image class='arrows_right' src='../../resources/shop/arrows.png'></image>
+
+
+   
+    </view>
+  </view>
+  <!-- 店铺照片 -->
+  <view class='showShopT'>  
+    <view class='showShopTitle'>已有商铺</view>
+  </view>
+  <view class='shop_info' wx:for="{{ShopLists}}" wx:key="item">
+    <view class='flex_block info_item' bindtap='TabShop' data-shop="{{item.deptId}}" data-state="{{item.state}}">
+      <text>{{item.name}}</text>
+      <!-- 已审核图标
+      <icon wx:if="{{item.state==1}}" type="success" size="20" /> -->
+      <!-- 未审核图标 
+      <icon wx:if="{{item.state==0}}" type="waiting" size="20" color='#ddd' />-->
+      <image class='arrows_right' src='../../resources/shop/arrows.png'></image>
+
+    </view>
+  </view>
+</view>

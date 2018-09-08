@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+  <block wx:if="{{haveApplied == true}}">
+    <view class='apply_mask'>
+      <image src='../resources/shop/apply_mask.png/' mode='scaleToFill'></image>
+      <view class='contact'>联系客服</view>
+      <view class='close'>
+        <icon class='close_btn' type='cancel' size='30' color='#fff'></icon>
+      </view>
+    </view>
+  </block>
+  <view class='bg_img'>
+    <image mode="widthFix" src="../resources/nav/bg.jpg"></image>
+  </view>
+  <!-- button -->
+  <view class='join_con'>
+    <button class='join_btn' open-type='getUserInfo'  hover-class="join_navigator-hover" bindtap='bindGetUserInfo'>点我入驻</button>
+  </view>
+  <!-- 点我购物 -->
+  <image class='to_shop' src='../resources/nav/to_shop.png'></image>
+</view>

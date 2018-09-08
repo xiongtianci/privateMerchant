@@ -1,0 +1,130 @@
+<!--pages/shop/index.wxml-->
+<view class='container'>
+  <!-- 店铺信息 -->
+  <view class='shop_info'>
+    <view wx:if="{{Jurisdiction==1}}" class='flex_block info_item' bindtap='TabShowLists'>
+      <text>切换店铺</text>
+      <image class='arrows' mode='scaleToFill' src='../resources/shop/arrows.png'></image>
+    </view>
+
+    <view class='flex_block info_item' data-name="店铺名称" data-value="{{shopInfo.shopName}}">
+      <text>店铺名称</text>
+      <text class="right_info" bindtap='onProductsItemTap'>{{shopInfo.shopName}}</text>
+      <image wx:if="{{!clerKFlag}}" class='arrows' mode='scaleToFill' bindtap='onProductsItemTap' src='../resources/shop/arrows.png'></image>
+    </view>
+    <view class='flex_block info_item' bindtap='ToTel'>
+      <text>联系电话</text>
+      <text class='right_info'>{{shopInfo.managerTel}}</text>
+      <image wx:if="{{!clerKFlag}}" class='arrows' mode='scaleToFill' src='../resources/shop/arrows.png'></image>
+    </view>
+    <view class='flex_block info_item_none fix_item' bindtap='openMap'>
+      <text>店铺地址</text>
+      <view class='flex_block fix_item_right'>
+        <!-- <text class='right_info'>{{shopInfo.address}}</text> -->
+        <text class='address_text_fix'>{{shopInfo.address}}</text>
+        <image wx:if="{{!clerKFlag}}" class='arrows' mode='scaleToFill' src='../resources/shop/arrows.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 店铺简介 -->
+  <view class='shop_info'>
+    <view class='flex_block info_item_nooo' bindtap='ToDescribe'>
+      <view class='shopnaneD'  >店铺简介
+      <image wx:if="{{!clerKFlag}}" class='arrowss' mode='scaleToFill' src='../resources/shop/arrows.png'></image>
+      
+      </view>
+      
+      <view class='flex_blocka'>
+        <text class='right_infoo'>{{shopInfo.describe}}</text>
+        
+      </view>
+    </view>
+  </view>
+  <!-- 店铺照片 -->
+  <view class='shop_info' bindtap='toshopPhoto'>
+    <view class='flex_block info_item_none'>
+      <text>店铺照片</text>
+      <image class='arrows' mode='scaleToFill' src='../resources/shop/arrows.png'></image>
+    </view>
+  </view>
+  <!-- 店长管理 -->
+  <view class='shop_info'>
+    <view class='flex_block info_item'>
+      <text>店长管理</text>
+      <view></view>
+    </view>
+    <view class='flex_block dy_con'>
+      <view wx:for="{{dzArray}}" wx:key="{{item}}">
+        <view class='text_center'>
+          <image src='{{item.headImgUrl}}' mode='widthFix' class='add_btn'>
+          </image>
+          <text class='job_title'>管理员</text>
+        </view>
+        <text class='dy_name'>{{item.mobile}}</text>
+      </view>
+      <image wx:if="{{dzArray.length<2}}" src='../resources/shop/add.png' mode='widthFix' class='add_btn right' bindtap='changeManage'></image>
+      <image wx:if="{{dzArray.length!=0}}" src='../resources/shop/remove.png' mode='widthFix' class='remove_btn right' bindtap='deleteClerk'></image>
+    </view>
+  </view>
+  <!-- 店员管理 -->
+  <view class='shop_info'>
+    <view class='flex_block info_item'>
+      <text>店员管理</text>
+      <view></view>
+    </view>
+    <view class='flex_block dy_con'>
+      <view class='dy_lists' wx:key="{{index}}" wx:for="{{dyArray}}">
+        <image src='{{item.headImgUrl}}' class='dy_img' mode='scaleToFill'></image>
+        <text class='dy_name' wx:if="{{res.data.data.name == null}}">{{item.mobile}}</text>
+        <text class='dy_name' wx:if="{{res.data.data.name != null}}">{{item.name}}</text>
+      </view>
+      <image wx:if="{{Jurisdiction==1}}" src='../resources/shop/add.png' mode='widthFix' class='add_btn right' bindtap='showAdd'></image>
+      <image wx:if="{{dyArray.length>0&&Jurisdiction==1}}" src='../resources/shop/remove.png' mode='widthFix' class='remove_btn right' bindtap='removeDY'></image>
+    </view>
+  </view>
+  <!-- 审核中蒙版 -->
+  <block wx:if="{{haveApplied == true}}">
+    <view class='apply_mask'>
+      <image src='../resources/shop/apply_mask.png/' mode='scaleToFill'></image>
+      <view class='contact'>联系客服</view>
+      <view class='close'>
+        <icon class='close_btn' type='cancel' size='30' color='#fff' bindtap='CloseMask'></icon>
+      </view>
+    </view>
+  </block>
+  <!-- 多店铺切换列表--蒙版 -->
+  <block wx:if="{{ShowLists}}">
+    <view class='show_lists_mask' bindtap='HideLists'>
+      <view class='shop_lists_con'>
+        <view class='flex_block shop_item' bindtap='KeepApply'>
+          <icon class='keep_apply_icon' type="clear" size="20" color='#0aba07' />
+          <view>继续申请入驻</view>
+        </view>
+        <view class='flex_block shop_item' wx:for="{{ShopLists}}" wx:key="{{index}}" wx:for-item="i" bindtap='TabShop' data-shop="{{i.deptId}}" data-state="{{i.state}}">
+          <block wx:if="{{i.state == 1}}">
+            <icon type="success" size="20" />
+          </block>
+          <block wx:if="{{i.state == 0}}">
+            <icon type="waiting" size="20" color='#ddd' />
+          </block>
+          <view>{{i.name}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 增加店员蒙版 -->
+  <view wx:if="{{showAddDY}}" class='add_dy_con'>
+    <view class='add_con'>
+      <view class='assistant'>添加店员</view>
+      <!-- <input type='text' placeholder='输入店员姓名' bindinput='DYName'></input> -->
+      <input type='number' maxlength='11' placeholder='输入店员手机号码' bindinput='DYPhone'></input>
+      <!-- <icon class='cancle' type='cancel' color='#ef4836' size='40' bindtap='hiddenMask' />-->
+      <view class='flex_block btn_con'>
+        <view class='ok_btn' bindtap='AddDY'>确定</view>
+      </view>
+    </view>
+    <view class='close'>
+        <icon class='close_btn' type='cancel' size='30' color='#fff' bindtap='hiddenMask'></icon>
+    </view>    
+  </view>
+</view>

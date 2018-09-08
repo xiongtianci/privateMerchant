@@ -1,0 +1,54 @@
+<!--pages/article/index.wxml-->
+<view class='container'>
+  <view class="flex_block swiper-tab">
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">未提货</view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已提货</view>
+    <view class='qr_code_con' bindtap='scanCode'>
+      <image src='../resources/nav/qr_code.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <swiper current="{{currentTab}}" class="swiper" duration="200" style="height:{{winHeight - 45}}px" bindchange="bindChange">
+    <swiper-item>
+      <!-- 未提货商品 -->
+      <view class='on_line_item'>
+        <block wx-if="{{WeiTiHuo.length == 0}}">
+          <text class='no_shop'>暂无未提货商品</text>
+        </block>
+        <block wx-if="{{WeiTiHuo.length != 0}}">
+          <view class='shop_item' wx:for="{{WeiTiHuo}}" wx:key="items" wx:for-item="i">
+            <view class='flex_block shop_item_change_css'>
+              <view class='shop_left'>
+                <view class='flex_block shop_img_info'>
+                  <image class='shop_item_img' mode='scaleToFill' src='{{i.imgSrc}}'></image>
+                  <view class='shop_info'>
+                    <text class='shop_name'>{{i.name}}</text>
+                    <text class='shop_specifications'>{{i.specifications}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='shop_right' bindtap='toManagement'>
+                <view class='buy_iofo'>
+                  <text class='price'>¥{{i.price}}</text>
+                  <text class='original_price'>¥{{i.original_price}}</text>
+                  <text class='count'>×{{i.count}}</text>
+                  <text class='real_pay'>实付:¥{{i.real_pay}}</text>
+                </view>
+              </view>
+            </view>
+            <!-- 客户取消的订单 -->
+            <block wx:if="{{i.cancel_order}}">
+              <view class='flex_block cancel_con'>
+                <text class='tk_text'>顾客取消订单,发起退款</text>
+                <button class='deal_with' bindtap='dealWith'>处理</button>
+              </view>
+            </block>
+          </view>
+          
+        </block>
+      </view>
+    </swiper-item>
+    <swiper-item>
+
+    </swiper-item>
+  </swiper>
+</view>

@@ -1,0 +1,59 @@
+<!--pages/changeInfo/index.wxml-->
+<view class='container'>
+  <!-- 修改店铺信息 -->
+  <view class='shop_info'>
+    <view class='flex_block info_item' data-name="店铺名称" data-value="{{shopInfo.shopName}}">
+      <text>店铺名称</text>
+      <input type='text' value='{{shopInfo.shopName}}' class='right_info' bindinput='getName' />
+    </view>
+    <view class='flex_block info_item'>
+      <text>联系电话</text>
+      <input type='text' value='{{shopInfo.phone}}' class='right_info' />
+    </view>
+    <view class='flex_block info_item'>
+      <text>店铺地址</text>
+      <view class='flex_block'>
+        <view bindtap='openMap' class='right_info'>{{shopInfo.address}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 店铺简介 -->
+  <view class='shop_info'>
+    <view class='flex_block info_item'>
+      <text>店铺简介</text>
+      <view class='flex_block'>
+        <input type='text' value='{{shopInfo.describe}}' class='right_info' />
+      </view>
+    </view>
+  </view>
+  <!-- 店铺照片 -->
+  <view class='shop_info' bindtap='toshopPhoto'>
+    <view class='flex_block info_item'>
+      <text>店铺照片</text>
+      <image class='arrows' mode='scaleToFill' src='../resources/shop/arrows.png'></image>
+    </view>
+  </view>
+  <!-- 店员管理 -->
+  <view class='shop_info'>
+    <view class='flex_block info_item'>
+      <text>店员管理</text>
+      <view></view>
+    </view>
+    <view class='flex_block dy_con'>
+      <view class='dy_lists' wx:key="{{index}}" wx:for="{{dyArray}}">
+        <image src='{{item.headImgUrl}}' class='dy_img' mode='scaleToFill'></image>
+        <text class='dy_name' wx:if="{{res.data.data.name == null}}">{{item.mobile}}</text>
+        <text class='dy_name' wx:if="{{res.data.data.name != null}}">{{item.name}}</text>
+      </view>
+      <image src='../resources/shop/add.png' mode='widthFix' class='add_btn' bindtap='showAdd'></image>
+      <image src='../resources/shop/remove.png' mode='widthFix' class='remove_btn' bindtap='removeDY'></image>
+    </view>
+    <view class='flex_block info_item' bindtap='changeManage'>
+      <text>管理转让</text>
+      <image class='arrows' mode='scaleToFill' src='../resources/shop/arrows.png'></image>
+    </view>
+    <view>
+      <button type='warn' class='change_info'>确认修改</button>
+    </view>
+  </view>
+</view>

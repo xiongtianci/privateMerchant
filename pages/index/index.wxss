@@ -1,0 +1,78 @@
+/**index.wxss**/
+
+.container {
+  position: relative;
+}
+
+/* ---------------------- */
+
+.apply_mask{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+.apply_mask>image{
+  display: block;
+  width: 480rpx;
+  height: 541rpx;
+  margin: 200rpx auto 0;
+}
+.contact{
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 640rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #ef4836;
+}
+.close{
+  width: 100%;
+  text-align: center;
+  margin-top: 100rpx;
+}
+
+
+.bg_img {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bg_img>image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.join_con {
+  width: 100%;
+  position: absolute;
+  top: 800rpx;
+}
+
+.join_btn {
+  width: 360rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #ef4836;
+  border-radius: 30px;
+  color: #fff;
+  text-align: center;
+  margin: 0rpx auto;
+}
+
+.to_shop {
+  display: block;
+  width: 156rpx;
+  height: 36rpx;
+  position: fixed;
+  bottom: 85rpx;
+  right: 95rpx;
+  color: #ef4836;
+}

@@ -1,0 +1,64 @@
+<!--pages/spManagement/index.wxml-->
+<view class='container'>
+  <!-- 名称 -->
+  <view class='name'>
+    <view class='flex_block sp_name'>
+      <text>商品名称</text>
+      <input type='text' value='{{commodityInfo.name}}' bindinput='getShopName' />
+    </view>
+  </view>
+  <!-- 信息 -->
+  <view class='info'>
+    <view>
+      <text>原价</text>
+      <input type='text' value='{{commodityInfo.original_price}}' bindinput='getPrice' />
+    </view>
+    <view>
+      <text>打折价（单独购买价）</text>
+      <input type='text' value='{{commodityInfo.discount}}' bindinput='getDiscountPrice' />
+    </view>
+    <view>
+      <text>团购价</text>
+      <input type='text' value='{{commodityInfo.group_price}}'bindinput='getGroupPrice' />
+    </view>
+    <view>
+      <text>活动时间</text>
+      <!-- <input type='text' value='{{commodityInfo.date}}'></input>-->
+      <view class='flex_block'>
+        <picker mode="date" value="{{date}}" start="2018-01-01" bindchange="bindDateChangeS">
+        <input disabled='disabled' class="picker" value='{{dateStart}}'/>
+      </picker>
+      <text>~</text>
+      <picker mode="date" value="{{date}}" start="2018-01-01" bindchange="bindDateChangeE">
+        <input disabled='disabled' class="picker" value='{{dateEnd}}'/>
+      </picker>
+      </view>
+    </view>
+  </view>
+  <!-- 数量限制 -->
+  <view class='limit'>
+    <view class='flex_block limit_con'>
+      <text>活动数量限制</text>
+      <input type='text' value='{{commodityInfo.limit}}' bindinput='getMaxBuy' />
+    </view>
+  </view>
+  <!-- 店铺照片 -->
+  <view class='shop_img'>
+    <view class='add_line'>
+      <text class='font30'>上传照片<text class='f_999'>（最多9张）</text></text>
+    </view>
+    <view class='flex_block shop_img_box'>
+      <view class='shop_img_item' wx:key='{{index}}' wx:for="{{imgSrc}}">
+        <image mode='widthFix' src='{{item}}'></image>
+        <icon class='del_btn' type='clear' size='24' color='rgba(255,255,255,0.7)' data-id='{{index}}' bindtap='delPhoto'></icon>
+      </view>
+      <view class='add_btn'>
+        <image mode='widthFix' src='../resources/shop/add_btn.png' bindtap='addPhoto'></image>
+      </view>
+    </view>
+  </view>
+  <view class='flex_block btn_con'>
+    <view></view>
+    <view class='submit_btn' bindtap='AddSP'>创建</view>
+  </view>
+</view>

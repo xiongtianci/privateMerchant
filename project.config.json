@@ -1,0 +1,53 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.4",
+	"appid": "wxb268e17280c77dc8",
+	"projectname": "tmj",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "申请入驻",
+					"pathName": "pages/apply/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品管理",
+					"pathName": "pages/commodity/index",
+					"query": ""
+				}
+			]
+		}
+	}
+}

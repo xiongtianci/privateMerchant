@@ -1,0 +1,64 @@
+<!--pages/Auth/Auth.wxml-->
+
+<view class='container'>
+  <view class="top">
+    <image class='athou' mode='widthFix' src='../res/athou.png'></image>
+  </view>
+  <view class='textbox'>
+    <text class='tips'>欢迎新用户加入找特卖，让生活更精彩</text>
+    <text class='tipd'>需要获取您的手机号码绑定账户，以提供更好的服务</text>
+  </view>
+  <!-- <view class='nowshop' bindtap='toApply'>创建新店铺</view> -->
+  <button class='nowshop' open-type="getPhoneNumber" bindgetphonenumber="toApply">创建新店铺</button>
+  <view class='hshop' bindtap='selectShopList'>选择已有店铺</view>
+  <!-- 多店铺选择列表 -->
+  <block wx:if="{{haveShopLists}}">
+    <view class='shop_lists_con'>
+      <view class='shop_lists'>
+        <view class="myd">我的店铺</view>
+        <view class='flex_block shop_item' wx:for="{{ShopLists}}" wx:key="{{index}}" wx:for-item="i" bindtap='ToShop' data-shop="{{i.deptId}}" data-state="{{i.state}}">
+          <block wx:if="{{i.state == 1}}">
+            <icon type="success" size="20" color='#167ef4' />
+          </block>
+          <block wx:if="{{i.state == 0}}">
+            <icon type="waiting" size="20" color='#167ef4' />
+          </block>
+           <block wx:if="{{i.state == 2}}">
+            <icon type="waiting" size="20" color='#167ef4' />
+          </block>
+          <view class='dp_name'>{{i.name}}</view>
+          <block wx:if="{{i.state == 2}}">
+            <text class='blue'>（审核不通过）</text>
+          </block>
+          <block wx:if="{{i.state == 1}}">
+            <text class='blue'>（点击进入）</text>
+          </block>
+          <block wx:if="{{i.state == 0}}">
+            <text class='blue'>（审核中）</text>
+          </block>
+        </view>
+      </view>
+      <view class='close'>
+        <icon class='close_btn' type='cancel' size='30' color='#fff' bindtap='CloseMaskShopLists'></icon>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{applyFail == true}}">
+    <view class='apply_mask'>
+      <image src='../resources/shop/apply_fail.png' mode='scaleToFill'></image>
+      <view class='fix_info' bindtap='ToShopEdit'>修改信息</view>
+      <view class='close'>
+        <icon class='close_btn' type='cancel' size='30' color='#fff' bindtap='CloseMaskFail'></icon>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{haveApplied == true}}">
+    <view class='apply_mask'>
+      <image src='../resources/shop/apply_mask.png' mode='scaleToFill'></image>
+      <view class='contact'>联系客服</view>
+      <view class='close'>
+        <icon class='close_btn' type='cancel' size='30' color='#fff' bindtap='CloseMaskApplied'></icon>
+      </view>
+    </view>
+  </block>
+</view>

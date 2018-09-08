@@ -1,0 +1,60 @@
+<!--index.wxml-->
+<view class="container">
+  <block wx:if="{{haveApplied == true}}">
+    <view class='apply_mask'>
+      <image src='../resources/shop/apply_mask.png' mode='scaleToFill'></image>
+      <view class='contact'>联系客服</view>
+      <view class='close'>
+        <icon class='close_btn' type='cancel' size='30' color='#fff' bindtap='CloseMaskApplied'></icon>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{applyFail == true}}">
+    <view class='apply_mask'>
+      <image src='../resources/shop/apply_fail.png' mode='scaleToFill'></image>
+      <view class='fix_info' bindtap='ToShopEdit'>修改信息</view>
+      <view class='close'>
+        <icon class='close_btn' type='cancel' size='30' color='#fff' bindtap='CloseMaskFail'></icon>
+      </view>
+    </view>
+  </block>
+  <view class='bg_img'>
+    <image mode="widthFix" src="../resources/nav/bg.jpg"></image>
+  </view>
+  <!-- button -->
+  <view class='join_con'>
+    <button class='join_btn' open-type='getUserInfo' hover-class="join_navigator-hover" bindgetuserinfo='bindGetUserInfo'>微信授权登录</button>
+  </view>
+  <!-- 点我购物 -->
+  <image class='to_shop' src='../resources/nav/to_shop.png'></image>
+  <!-- 多店铺选择列表 -->
+  <block wx:if="{{haveShopLists}}">
+    <view class='shop_lists_con'>
+     
+      <view class='shop_lists'>
+         <view class="myd">我的店铺</view>
+        <view class='flex_block shop_item' wx:for="{{ShopLists}}" wx:key="{{index}}" wx:for-item="i" bindtap='ToShop' data-shop="{{i.deptId}}" data-state="{{i.state}}">
+          <block wx:if="{{i.state == 1}}">
+            <icon type="success" size="20" color='#167ef4' />
+          </block>
+          <block wx:if="{{i.state == 0}}">
+            <icon type="waiting" size="20" color='#167ef4' />
+          </block>
+          <view class='dp_name'>{{i.name}}</view>
+          <block wx:if="{{i.state == 2}}">
+            <text class='blue'>（审核不通过）</text>
+          </block>
+          <block wx:if="{{i.state == 1}}">
+            <text class='blue'>（点击进入）</text>
+          </block>
+          <block wx:if="{{i.state == 0}}">
+            <text class='blue'>（审核中）</text>
+          </block>
+        </view>
+      </view>
+      <view class='close'>
+        <icon class='close_btn' type='cancel' size='30' color='#fff' bindtap='CloseMaskShopLists'></icon>
+      </view>
+    </view>
+  </block>
+</view>
